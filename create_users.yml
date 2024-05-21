@@ -1,0 +1,27 @@
+---
+
+- name: Atul Yadav
+  hosts: servers
+  gather_facts: true 
+  become: true
+
+  vars_files:
+    - users.yml
+
+  tasks: 
+
+    - name: Check host distribution
+      ansible.builtin.debug:
+        msg: "Distribution is {{ ansible_distribution }}"
+        
+    - name: Create User's
+      ansible.builtin.user:
+        name: "{{ item.username }}"
+        password: "{{ item.password | password_hash('sha512') }}"
+        comment: This user added with ansible playbook
+        group: sudo
+        shell: /bin/bash
+      loop: "{{ users }}"
+
+        
+  
