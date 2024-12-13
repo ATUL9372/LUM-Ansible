@@ -1,6 +1,6 @@
 ---
 users:
-  - username: user1
+  - username: atul
     password: pass1
   #  ssh_key: Enter- your ssh public key
 
