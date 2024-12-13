@@ -1,0 +1,23 @@
+---
+
+- name: Atul Yadav
+  hosts: servers
+  gather_facts: true 
+  become: true
+
+  vars_files:
+    - rusers.yml
+
+  tasks: 
+
+    - name: Check host distribution
+      ansible.builtin.debug:
+        msg: "Distribution is {{ ansible_distribution }}"
+    
+    - name: Remove server User's
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: absent
+        remove: true
+        force: yes
+      loop: "{{ rusers }}"

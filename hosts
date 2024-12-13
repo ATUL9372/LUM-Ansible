@@ -1,9 +1,11 @@
 [servers]
 
-192.168.xx.xx
+192.16X.XX.XX
 
 [servers:vars]
+
 ansible_connection=ssh
-ansible_ssh_user=ENTER-USERNAME
-ansible_ssh_pass=ENTER-PASS
-#ansible_become_password=
+ansible_ssh_user=USERNAME
+ansible_become_password=PASSWORD
+ansible_ssh_pass=PASSWORD
+ansible_ssh_common_args='-o IdentitiesOnly=yes'

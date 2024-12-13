@@ -1,0 +1,14 @@
+---
+users:
+  - username: user1
+    password: pass1
+  #  ssh_key: Enter- your ssh public key
+
+  - username: user2
+    password: pass2
+
+  - username: user3
+    password: pass3
+
+# Add more use's
+

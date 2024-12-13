@@ -6,7 +6,7 @@
   become: true
 
   vars_files:
-    - users.yml
+    - add_users.yml
 
   tasks: 
 
@@ -19,9 +19,17 @@
         name: "{{ item.username }}"
         password: "{{ item.password | password_hash('sha512') }}"
         comment: This user added with ansible playbook
-        group: sudo
+        groups: sudo,adm
         shell: /bin/bash
+        create_home: yes
       loop: "{{ users }}"
 
-        
-  
+    
+    - name: Setup authorized_keys
+      ansible.posix.authorized_key:
+        user: "{{ item.username }}"
+        state: present
+        key: " {{ item.ssh_key }}"
+        manage_dir: true
+      loop: "{{ users }}"
+
