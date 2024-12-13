@@ -36,7 +36,7 @@ LUM-Ansible is an Ansible playbook that allows you to create and remove users on
 
 ## How to Use
 
-Note: Create user's edit this **add_users.yml file and Remove user's edit this **rusers.yml file
+##Note: Create user's edit this **add_users.yml** file and Remove user's edit this **rusers.yml** file
 
 1. Clone this repository to your local machine:
    ```bash
